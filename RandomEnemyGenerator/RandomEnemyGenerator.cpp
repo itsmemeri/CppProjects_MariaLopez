@@ -37,5 +37,9 @@ bool operator == (Enemy A, Enemy B)
 
 Enemy CreateRandomEnemy()
 {
-	
+	int i = rand() % 3;
+	int j = rand() % 3;
+	int health = rand() % 101;
+	Enemy A;
+	return (A.name = names[i], A.type = EnemyType[j], A.health = health);
 }
