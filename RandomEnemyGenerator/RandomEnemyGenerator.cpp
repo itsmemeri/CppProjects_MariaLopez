@@ -2,30 +2,34 @@
 #include <time.h>
 #include <math.h>
 #include <iostream>
-using namespace std;
+using namespace std; // tambien se puede poner std:: antes del string y no poner la libreria
 
-string names[]{ "Pinchependejo", "Antxel", "Shrek", "Merienda" };
+string names[]{ "Pinchependejo", "Antxel", "Shrek", "Merienda"};
 
-enum EnemyType {zombie, vampire, ghost, witch};
+enum class EnemyType {ZOMBIE, VAMPIRE, GHOST, WITCH};
 
 struct Enemy
 {
 	EnemyType type;
-	string name;
+	/*std::*/string name;
 	int health;
+	/*std::string getEnemyTypeString()
+	{
+		switch (type)
+		{
+			case EnemyType::ZOMBIE::	return "zombie";
+			case EnemyType::VAMPIRE::	return "vampire";				PARTE OPCIONAL DE LOS EJERCICIOS
+			case EnemyType::GHOST::		return "zombie";
+			case EnemyType::WITCH::		return "witch";
+			default: return " ";
+		}
+	}
+	*/
 };
 
 bool operator == (Enemy A, Enemy B)
 {
-	if (A.name == B.name)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-	if (A.type == B.type)
+	if (A.name == B.name && A.type == B.type)
 	{
 		return true;
 	}
@@ -34,6 +38,10 @@ bool operator == (Enemy A, Enemy B)
 		return false;
 	}
 };
+/*bool operator==(const Enemy&a, const Enemy &b)
+{
+	return a.name == b.name && a.type == b.type;
+}*/
 
 Enemy CreateRandomEnemy()
 {
