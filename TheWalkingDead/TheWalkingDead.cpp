@@ -15,17 +15,10 @@ public:
 	void attack(Zombie &z);		//especificación 
 	bool isAlive()
 	{
-		if (life > 0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return (life > 0);
 	}
 	Player() : weapon(Weapon(rand() % static_cast<int>(Weapon::MAX))),
-		precision (rand() % 20 / 10), life (rand() % 100)
+		precision (rand() % 20 / 10.f), life (100)
 	{
 	};
 };
@@ -41,7 +34,7 @@ public:
 	{
 		if (distanceToPlayer <= 0)
 		{
-			p.life = p.life - Zombie::damage;
+			p.life -= damage;
 		}
 		else
 		{
