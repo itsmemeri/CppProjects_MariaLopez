@@ -89,6 +89,7 @@ void main()
 			}
 			std::cout << "Zombie [" << i << "]" << std::endl << "        life = " << zombies[i].life << " distance = " << zombies[i].distanceToPlayer << " speed = " << zombies[i].speed << " damage = " << zombies[i].damage << std::endl;
 		}
+
 	} 
 	while (player.isAlive() && zombiesAreAlive == true);
 	if (zombiesAreAlive = true)
