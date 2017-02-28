@@ -17,8 +17,8 @@ public:
 	{
 		return (life > 0);
 	}
-	Player() : weapon(Weapon(rand() % static_cast<int>(Weapon::MAX))),
-		precision (rand() % 20 / 10.f), life (100)
+	Player() : weapon(static_cast<Weapon>(rand() % static_cast<int>(Weapon::MAX))),			//static_cast<int> --> de c++
+		precision (rand() % 10 / 10.f), life (100)											// .f para float
 	{
 	};
 };
@@ -53,8 +53,8 @@ public:
 			return false;
 		}
 	}
-	Zombie() : distanceToPlayer(rand()% 200 + 20), speed (rand () % 200 / 10), 
-		damage (rand() % 200 / 10), life (rand() % 100)
+	Zombie() : distanceToPlayer(rand()% 200 + 20), speed (rand () % 20 / 10.f), 
+		damage (rand() % 20 / 10.f), life (rand() % 100)
 	{
 	};
 };
@@ -65,7 +65,7 @@ void Player::attack (Zombie &z)
 void main()
 {
 	srand(time(nullptr));
-	const int numZombies = 10;
+	const int numZombies{ 10 };
 	Player player;
 	Zombie zombies[numZombies];
 	bool zombiesAreAlive;
